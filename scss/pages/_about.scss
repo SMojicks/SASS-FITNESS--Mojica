@@ -1,0 +1,75 @@
+@use "../abstract/" as *;
+@use "../base/" as *;
+
+.aboutBanner {
+  padding: 4rem 0;
+  // &__wrapper{
+  //     display: flex;
+  //     flex-direction: column;
+  //     gap: 2rem;
+  // }
+  &__top {
+    @include between;
+    gap: 2rem;
+    h1 {
+      width: 48rem;
+      margin-top: 2rem;
+      line-height: 5rem;
+    }
+  }
+  &__bottom {
+    display: grid;
+    grid-template-areas:
+      "a c"
+      "b c";
+    gap: 1rem;
+    #botimg1 {
+      @include imgFit(500px,500px);
+    }
+    &--a {
+      grid-area: a;
+
+    }
+    &--b {
+      grid-area: b;
+      width: 85%;
+      h3{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+      p{
+        max-width: 40rem;
+      }
+    }
+    &--c {
+      margin-top: 4rem;
+      grid-area: c;
+      @include imgFit(100%,700px);
+    }
+  }
+}
+
+.aboutValues{
+    padding: 4rem 0;
+    color:$clr--light;
+
+    &__cards{
+        color: $clr--dark;
+        @include gridFixed(2, 1rem);
+        max-width: 70%;
+        margin: 0 auto;
+    .cardIcon{
+        background-color: $clr--light;
+        display: flex;
+        gap: 2rem;
+    }
+    }
+    
+}
+
+.aboutLocation{
+    padding: 4rem 0;
+    &__map{
+        @include centerAll;
+    }
+}

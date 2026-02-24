@@ -3,6 +3,7 @@
 
 .header {
   padding: 3rem 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   &__wrapper {
     @include between;
   }
@@ -10,6 +11,7 @@
     a > h4 {
       color: $clr--dark;
       font-size: clamp(1.25rem, 5vw, 1.5rem);
+      
     }
   }
   &__nav {
