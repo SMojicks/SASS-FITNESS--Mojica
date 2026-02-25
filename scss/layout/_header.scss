@@ -2,16 +2,22 @@
 @use "../base/" as *;
 
 .header {
+  position: relative;
+  z-index: 1;
   padding: 3rem 0;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  @include mediaQuery(520px){
+    position: fixed;
+  }
+
   &__wrapper {
     @include between;
   }
+
   &__logo {
     a > h4 {
       color: $clr--dark;
       font-size: clamp(1.25rem, 5vw, 1.5rem);
-      
     }
   }
   &__nav {
@@ -22,6 +28,67 @@
       li a {
         font-weight: 600;
         color: $clr--dark;
+      }
+    }
+  }
+  .toggle__menu {
+    display: none;
+    span {
+      background-color: $clr--dark;
+      color: $clr--dark;
+      width: 2.5rem;
+      height: 0.1rem;
+      border: 2px solid $clr--dark;
+      border-radius: 1rem;
+    }
+  }
+
+  @include mediaQuery(520px) {
+
+    &{
+      position: fixed;
+      width: 100%;
+      &__nav{
+      ul {
+        background-color: $clr--dark;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        right: -100%;
+        z-index: 999;
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        transition: all 0.5s ease-in-out; 
+        padding-top: 2rem;
+        li a {
+          color: $clr--light;
+        }
+      }
+      &.open{
+        ul{
+          right: 0;
+          transition: all 0.5s ease-in-out;
+          }
+        }
+      }
+    }
+
+    .toggle__menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      &.open span:first-child {
+        transform: translate(0, 10px) rotate(225deg);
+        transition: 0.5s ease-in-out;
+      }
+      &.open span:nth-child(2) {
+        opacity: 0;
+      }
+      &.open span:last-child {
+        transform: translate(0, -14px) rotate(-225deg);
+        transition: 0.5s ease-in-out;
       }
     }
   }

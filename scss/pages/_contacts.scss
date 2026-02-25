@@ -4,12 +4,19 @@
 .contactBanner {
   padding: 4rem 0;
   position: relative;
+  @include mediaQuery(520px){
+    padding-top: 170px;
+  }
   &__title {
     max-width: 50rem;
     margin-bottom: 2rem;
   }
   &__wrapper {
     @include gridCustom(1.5fr 1fr, 5rem);
+    @include mediaQuery(520px){
+      display: flex;
+      flex-direction: column;
+    }
   }
   &__left {
     form {
@@ -57,6 +64,9 @@
       bottom: 1rem;
       z-index: -9;
     }
+    @include mediaQuery(520px){
+      display:none;
+    }
   }
 }
 
@@ -66,6 +76,10 @@
     display: flex;
     flex-direction: row;
     gap: 5rem;
+  @include mediaQuery(520px){
+    display: flex;
+    flex-direction: column;
+  }
   }
   &__left {
     max-width: 30rem;
@@ -78,15 +92,29 @@
     padding: 1.5rem 0;
     &--question {
       @include between;
-      cursor:pointer i {
+      cursor:pointer;
+      i {
         transition: 0.5s ease;
+      }
+    }
+    &.active{
+      i{
+        transform: rotate(180deg);
       }
     }
     &--answer {
       max-height: 0;
       overflow: hidden;
-      opacity: 0;
       transition: 0.5s ease;
+      margin-top: 1rem;
+    }
+    &.active{
+      i{
+        transform: rotate(180deg);
+      }
+      .contactFaq__item--answer{
+        max-height: 1000px;
+      }
     }
   }
 }

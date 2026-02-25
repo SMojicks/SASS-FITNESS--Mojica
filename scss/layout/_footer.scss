@@ -3,9 +3,16 @@
 .footer{
     padding: 2rem;
     color: $clr--light;
+
     &__wrapper{
-        @include between;
+    @include between;
+    @include mediaQuery(520px){
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
     }
+    }
+    
     &__social{
         display: flex;
         gap: 2rem;

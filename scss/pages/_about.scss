@@ -3,26 +3,54 @@
 
 .aboutBanner {
   padding: 4rem 0;
-  // &__wrapper{
-  //     display: flex;
-  //     flex-direction: column;
-  //     gap: 2rem;
-  // }
+  @include mediaQuery(520px){
+    padding-top: 170px;
+  }
+
+  &__wrapper{
+  @include mediaQuery(520px){
+    grid-template-columns: 1fr;
+    text-align: center;
+        }
+  }
+
+
   &__top {
     @include between;
+    @include mediaQuery(520px){
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+
+    h1{
+      max-width: 30rem;
+    }
+    p{
+      text-align: justify;
+      max-width: 40rem;
+    }
+    }
     gap: 2rem;
     h1 {
       width: 48rem;
       margin-top: 2rem;
       line-height: 5rem;
     }
+
   }
+
   &__bottom {
     display: grid;
     grid-template-areas:
       "a c"
       "b c";
     gap: 1rem;
+    @include mediaQuery(520px){
+      display: flex;
+      flex-direction: column;
+      @include centerAll;
+      text-align: justify
+    }
     #botimg1 {
       @include imgFit(500px,500px);
     }
@@ -58,13 +86,25 @@
         @include gridFixed(2, 1rem);
         max-width: 70%;
         margin: 0 auto;
+        @include mediaQuery(520px){
+          display: flex;
+          flex-direction: column;
+        }
     .cardIcon{
         background-color: $clr--light;
         display: flex;
         gap: 2rem;
+        @include mediaQuery(520px){
+          @include centerAll;
+          display: flex;
+          flex-direction: column;
+          p{
+            text-align: justify;
+          }
+        }
     }
     }
-    
+  
 }
 
 .aboutLocation{
